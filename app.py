@@ -239,3 +239,10 @@ def handle_requests():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
+    # Add Vercel handler at the bottom
+@app.route('/')
+def vercel_root():
+    return jsonify({"status": "OK", "message": "Use /like endpoint"})
+
+# Required for Vercel
+handler = app
